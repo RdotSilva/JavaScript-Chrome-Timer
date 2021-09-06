@@ -39,3 +39,12 @@ function addTask() {
   tasks.push("");
   renderTask(taskNum);
 }
+
+/**
+ * Remove a task from the list
+ * @param {String} taskNum the number of the task to remove
+ */
+function deleteTask(taskNum) {
+  tasks.splice(taskNum, 1);
+  renderTasks();
+}
