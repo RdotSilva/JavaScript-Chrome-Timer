@@ -48,3 +48,14 @@ function deleteTask(taskNum) {
   tasks.splice(taskNum, 1);
   renderTasks();
 }
+
+/**
+ * Render all tasks
+ */
+function renderTasks() {
+  const taskContainer = document.getElementById("task-container");
+  taskContainer.textContent = "";
+  tasks.forEach((taskText, taskNum) => {
+    renderTask(taskNum);
+  });
+}
