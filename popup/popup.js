@@ -13,6 +13,7 @@ function renderTask(taskNum) {
   const text = document.createElement("input");
   text.type = "text";
   text.placeholder = "Enter a task...";
+  text.value = tasks[taskNum];
   text.addEventListener("change", () => {
     tasks[taskNum] = text.value;
   });
