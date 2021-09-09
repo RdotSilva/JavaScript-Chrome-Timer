@@ -1,5 +1,24 @@
 let tasks = [];
 
+/**
+ * Logic for start timer button
+ */
+const startTimerButton = document.getElementById("start-timer-btn");
+startTimerButton.addEventListener("click", () => {
+  chrome.storage.local.get(["isRunning"], (res) => {
+    chrome.storage.local.set(
+      {
+        isRunning: !res.isRunning,
+      },
+      () => {
+        startTimerButton.textContent = !res.isRunning
+          ? "Pause Timer"
+          : "Start Timer";
+      }
+    );
+  });
+});
+
 const addTaskButton = document.getElementById("add-task-btn");
 addTaskButton.addEventListener("click", () => addTask());
 
