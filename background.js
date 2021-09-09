@@ -34,3 +34,5 @@ chrome.storage.local.get(["timer", "isRunning"], (res) => {
     isRunning: "isRunning" in res ? res.isRunning : false,
   });
 });
+
+// TODO: Investigate timer starting automatically when first loading extension
