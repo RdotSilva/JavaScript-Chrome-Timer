@@ -19,6 +19,22 @@ startTimerButton.addEventListener("click", () => {
   });
 });
 
+/**
+ * Logic for reset timer button
+ */
+const resetTimerButton = document.getElementById("reset-timer-btn");
+resetTimerButton.addEventListener("click", () => {
+  chrome.storage.local.set(
+    {
+      timer: 0,
+      isRunning: false,
+    },
+    () => {
+      startTimerButton.textContent = "Start Timer";
+    }
+  );
+});
+
 const addTaskButton = document.getElementById("add-task-btn");
 addTaskButton.addEventListener("click", () => addTask());
 
