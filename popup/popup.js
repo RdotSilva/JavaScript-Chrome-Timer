@@ -1,6 +1,20 @@
 let tasks = [];
 
 /**
+ * Logic to update the time display
+ */
+function updateTime() {
+  chrome.storage.local.get(["timer"], (res) => {
+    const time = document.getElementById("time");
+    time.textContent = res.timer;
+  });
+}
+
+// Update time immediately and then once every second
+updateTime();
+setInterval(updateTime, 1000);
+
+/**
  * Logic for start timer button
  */
 const startTimerButton = document.getElementById("start-timer-btn");
