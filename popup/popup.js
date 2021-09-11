@@ -1,14 +1,13 @@
 let tasks = [];
-const MAX_MINUTES_PER_TASK = 25;
 
 /**
  * Logic to update the time display
  */
 function updateTime() {
-  chrome.storage.local.get(["timer"], (res) => {
+  chrome.storage.local.get(["timer", "timeOption"], (res) => {
     const time = document.getElementById("time");
     const minutes = `${
-      MAX_MINUTES_PER_TASK - Math.ceil(res.timer / 60)
+      res.timeOption - Math.ceil(res.timer / 60)
     }`.padStart(2, "0");
     let seconds = "00";
     if (res.timer % 60 != 0) {
