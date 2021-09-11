@@ -24,3 +24,8 @@ saveButton.addEventListener("click", () => {
     isRunning: false
   })
 })
+
+// Ensure correct value is being saved for timer input field
+chrome.storage.local.get(["timeOption"], (res) => {
+  timeOption.value = res.timeOption;
+})
