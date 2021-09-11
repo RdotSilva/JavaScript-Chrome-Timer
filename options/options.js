@@ -12,6 +12,12 @@ timeOption.addEventListener("change", (event) => {
   }
 });
 
+const alarmSoundOption = document.getElementById("alarm-sound-option");
+alarmSoundOption.addEventListener("change", (event) => {
+  const {value} = event.target;
+  // TODO: add logic to update this value in options
+})
+
 /**
  * Save button used to save options
  * Resets timer and saves options to local storage
