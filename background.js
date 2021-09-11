@@ -31,7 +31,7 @@ chrome.alarms.onAlarm.addListener((alarm) => {
 chrome.storage.local.get(["timer", "isRunning", "timeOption"], (res) => {
   chrome.storage.local.set({
     timer: "timer" in res ? res.timer : 0,
-    timeOption = "timeOption" in res ? res.timeOption : 25,
+    timeOption: "timeOption" in res ? res.timeOption : 25,
     isRunning: "isRunning" in res ? res.isRunning : false,
   });
 });
