@@ -11,3 +11,16 @@ timeOption.addEventListener("change", (event) => {
     timeOption.value = 25;
   }
 });
+
+/**
+ * Save button used to save options
+ * Resets timer and saves options to local storage
+ */
+const saveButton = document.getElementById('save-btn')
+saveButton.addEventListener("click", () => {
+  chrome.storage.local.set({
+    timer: 0,
+    timeOption: timeOption.value,
+    isRunning: false
+  })
+})
