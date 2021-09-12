@@ -12,3 +12,11 @@ body {
   margin: -8px;
   padding: 5px;
 }
+
+#time {
+  text-align: center;
+  font-size: 50px;
+  margin: 10px;
+  font-weight: normal;
+  color: whitesmoke;
+}
