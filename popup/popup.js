@@ -6,9 +6,10 @@ let tasks = [];
 function updateTime() {
   chrome.storage.local.get(["timer", "timeOption"], (res) => {
     const time = document.getElementById("time");
-    const minutes = `${
-      res.timeOption - Math.ceil(res.timer / 60)
-    }`.padStart(2, "0");
+    const minutes = `${res.timeOption - Math.ceil(res.timer / 60)}`.padStart(
+      2,
+      "0"
+    );
     let seconds = "00";
     if (res.timer % 60 != 0) {
       seconds = `${60 - (res.timer % 60)}`.padStart(2, "0");
@@ -82,6 +83,7 @@ function renderTask(taskNum) {
   text.type = "text";
   text.placeholder = "Enter a task...";
   text.value = tasks[taskNum];
+  text.className = "task-input";
   text.addEventListener("change", () => {
     tasks[taskNum] = text.value;
     saveTasks();
@@ -90,6 +92,7 @@ function renderTask(taskNum) {
   const deleteButton = document.createElement("input");
   deleteButton.type = "button";
   deleteButton.value = "X";
+  deleteButton.className = "task-delete";
   deleteButton.addEventListener("click", () => {
     deleteTask(taskNum);
   });
