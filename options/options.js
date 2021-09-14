@@ -14,24 +14,26 @@ timeOption.addEventListener("change", (event) => {
 
 const alarmSoundOption = document.getElementById("alarm-sound-option");
 alarmSoundOption.addEventListener("change", (event) => {
-  const {value} = event.target;
-  // TODO: add logic to update this value in options
-})
+  const { value } = event.target;
+  chrome.storage.local.set({
+    alarmSoundOption: value,
+  });
+});
 
 /**
  * Save button used to save options
  * Resets timer and saves options to local storage
  */
-const saveButton = document.getElementById('save-btn')
+const saveButton = document.getElementById("save-btn");
 saveButton.addEventListener("click", () => {
   chrome.storage.local.set({
     timer: 0,
     timeOption: timeOption.value,
-    isRunning: false
-  })
-})
+    isRunning: false,
+  });
+});
 
 // Ensure correct value is being saved for timer input field
 chrome.storage.local.get(["timeOption"], (res) => {
   timeOption.value = res.timeOption;
-})
+});
