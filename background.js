@@ -28,12 +28,16 @@ chrome.alarms.onAlarm.addListener((alarm) => {
 });
 
 // Check local storage and set default values if none exist
-chrome.storage.local.get(["timer", "isRunning", "timeOption"], (res) => {
-  chrome.storage.local.set({
-    timer: "timer" in res ? res.timer : 0,
-    timeOption: "timeOption" in res ? res.timeOption : 25,
-    isRunning: "isRunning" in res ? res.isRunning : false,
-  });
-});
+chrome.storage.local.get(
+  ["timer", "isRunning", "timeOption", "alarmSoundOption"],
+  (res) => {
+    chrome.storage.local.set({
+      timer: "timer" in res ? res.timer : 0,
+      timeOption: "timeOption" in res ? res.timeOption : 25,
+      alarmSoundOption: "alarmSoundOption" in res ? res.alarmSoundOption : true,
+      isRunning: "isRunning" in res ? res.isRunning : false,
+    });
+  }
+);
 
 // TODO: Investigate timer starting automatically when first loading extension
