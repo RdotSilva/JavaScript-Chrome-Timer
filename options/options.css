@@ -9,3 +9,16 @@ h1 {
   margin: 10px;
   font-weight: normal;
 }
+
+h2 {
+  font-weight: normal;
+  color: whitesmoke;
+}
+
+#time-option {
+  outline: none;
+  border: none;
+  width: 300px;
+  border-radius: 4px;
+  padding: 10px;
+}
